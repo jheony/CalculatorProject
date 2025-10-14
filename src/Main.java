@@ -2,13 +2,19 @@
 //    1. 계산기는 2개의 숫자를 받을 수 있고 사칙연산 될 문자를 받을 수 있다.
 //    2. 계산기는 exit을 입력할 때까지 계속해서 값을 받고 연산 결과를 반환한다.
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
         // TODO: **양의 정수(0 포함)를 입력받기**
         //  Scanner를 사용하여 양의 정수 2개(0 포함)를 전달 받을 수 있습니다.
         //  양의 정수는 각각 하나씩 전달 받습니다.
         //  양의 정수는 적합한 타입으로 선언한 변수에 저장합니다.
-
+        Scanner sc = new Scanner(System.in);
+        System.out.print("첫 번째 숫자를 입력하세요: ");
+        int value1 = sc.nextInt();
+        System.out.print("두 번째 숫자를 입력하세요: ");
+        int value2 = sc.nextInt();
 
         // TODO: - [ ]  **사칙연산 기호(➕,➖,✖️,➗)를 입력받기**
         //    - [ ]  Scanner를 사용하여 사칙연산 기호를 전달 받을 수 있습니다.
