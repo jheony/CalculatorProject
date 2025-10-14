@@ -10,7 +10,7 @@ public class Main {
         int value1, value2;
 
         // "exit" 입력 전까지 무한 계산
-        while (true) {
+        do {
             // 양의 정수(0 포함)를 입력받기
             System.out.print("첫 번째 숫자를 입력하세요: ");
             value1 = sc.nextInt();
@@ -45,9 +45,6 @@ public class Main {
             System.out.println("결과: " + result);
 
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
-            if (sc.next().equals("exit")) {
-                break;
-            }
-        }
+        } while (!sc.next().equals("exit"));
     }
 }
