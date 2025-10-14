@@ -21,7 +21,7 @@ public class Main {
         //       사칙연산 기호를 적합한 타입으로 선언한 변수에 저장합니다. (`charAt(0)`)
         System.out.print("사칙연산 기호를 입력하세요: ");
         char symbol = sc.next().charAt(0);
-        System.out.println(value1 +" "+ symbol +" "+ value2);
+//        System.out.println(value1 +" "+ symbol +" "+ value2);
 
         // TODO:    **위에서 입력받은 양의 정수 2개와 사칙연산 기호를 사용하여 연산을 진행한 후 결과값을 출력하기**
         //       키워드 : `if` `switch`
