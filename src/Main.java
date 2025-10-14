@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        // TODO: 양의 정수(0 포함)를 입력받기
+        // 양의 정수(0 포함)를 입력받기
         Scanner sc = new Scanner(System.in);
 
         System.out.print("첫 번째 숫자를 입력하세요: ");
@@ -13,11 +13,11 @@ public class Main {
         System.out.print("두 번째 숫자를 입력하세요: ");
         int value2 = sc.nextInt();
 
-        // TODO: 사칙연산 기호(➕,➖,✖️,➗)를 입력받기
+        // 사칙연산 기호(➕,➖,✖️,➗)를 입력받기
         System.out.print("사칙연산 기호를 입력하세요: ");
         char symbol = sc.next().charAt(0);
 
-        // TODO: 입력받은 양의 정수 2개와 사칙연산 기호를 사용하여 연산 후 결과값 출력 _키워드 : `if` `switch`
+        // 입력받은 양의 정수 2개와 사칙연산 기호를 사용하여 연산 후 결과값 출력 _키워드 : `if` `switch`
         int result = 0;
 
         switch (symbol) {
