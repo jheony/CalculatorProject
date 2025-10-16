@@ -26,7 +26,7 @@ public class Main {
                 char symbol = sc.next().charAt(0);
 
                 // 입력받은 양의 정수 2개와 사칙연산 기호를 사용하여 연산 후 결과값 출력 _키워드 : `if` `switch`
-                int result = 0;
+                int result;
 
                 switch (symbol) {
                     case '+':
