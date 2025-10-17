@@ -31,12 +31,13 @@ public class App {
 
                 // 사칙연산 기호(➕,➖,✖️,➗)를 입력받기
                 System.out.print("사칙연산 기호를 입력하세요: ");
+                char inputOperator = sc.next().charAt(0);
 
                 // 입력받은 기호로 enum 타입 설정하기
-                OperatorType operator = OperatorType.matchOperator(sc.next().charAt(0));
+                OperatorType operator = OperatorType.matchOperator(inputOperator);
 
                 // 입력받은 양의 정수 2개와 사칙연산 기호를 사용하여 연산 후 결과값 출력 _키워드 : `if` `switch`
-                int result = arithmeticCalculator.calculator(value1, value2, operator);
+                double result = arithmeticCalculator.calculator(value1, value2, operator);
                 System.out.println("결과: " + result);
 
                 // 저장된 연산 결과 확인
