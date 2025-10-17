@@ -11,7 +11,16 @@ public enum OperatorType {
     OperatorType(char operator) {
         this.operator = operator;
     }
-    public char getOperator() {
+    public static OperatorType matchOperator(char inputOperator){
+        for(OperatorType operator : OperatorType.values()){
+            if(operator.getSymbol() == inputOperator){
+                return operator;
+            }
+        }
+        throw new RuntimeException("올바른 연산 기호를 입력해주세요.");
+    }
+
+    public char getSymbol() {
         return operator;
     }
 }

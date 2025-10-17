@@ -10,11 +10,11 @@ public class ArithmeticCalculator /* TODO: Hint */ {
     // 생성자
 
     // 기능
-    public int calculator(int num1, int num2, char operator) {
+    public int calculator(int num1, int num2, OperatorType operator) {
         // 입력받은 양의 정수 2개와 사칙연산 기호를 사용하여 연산 후 결과값 출력 _키워드 : `if` `switch`
         int result;
-
-        switch (operator) {
+        System.out.println(operator.name());
+        switch (operator.getSymbol()) {
             case '+':
                 result = num1 + num2;
                 break;
@@ -34,7 +34,6 @@ public class ArithmeticCalculator /* TODO: Hint */ {
             default:
                 throw new RuntimeException("올바른 연산 기호를 입력해주세요.");
         }
-
         results.add(result);
         return result;
     }
