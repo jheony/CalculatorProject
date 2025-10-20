@@ -22,9 +22,9 @@ public class App {
             try {
                 // 양의 정수(0 포함)를 입력받기
                 System.out.print("첫 번째 숫자를 입력하세요: ");
-                num1 = sc.nextInt();
+                num1 = sc.nextDouble();
                 System.out.print("두 번째 숫자를 입력하세요: ");
-                num2 = sc.nextInt();
+                num2 = sc.nextDouble();
                 if (num1 < 0 || num2 < 0) {
                     throw new Exception("양의 정수(0포함)를 입력해주세요.");
                 }
@@ -37,7 +37,7 @@ public class App {
                 OperatorType operator = OperatorType.fromSymbol(inputSymbol);
 
                 // 입력받은 양의 정수 2개와 사칙연산 기호를 사용하여 연산 후 결과값 출력
-                double result = arithmeticCalculator.calculator(num1, num2, operator);
+                Object result = arithmeticCalculator.calculate(num1, num2, operator);
                 System.out.println("결과: " + result);
 
                 // 저장된 연산 결과 확인
@@ -52,7 +52,7 @@ public class App {
         System.out.println("수정 전 데이터:\n" + arithmeticCalculator.getResults());
 
         // 연산 결과 수정
-        arithmeticCalculator.setResult(0, 999);
+        arithmeticCalculator.setResult(0, 999.0);
         System.out.println("0번째 인덱스를 999로 수정:\n" + arithmeticCalculator.getResults());
 
         // 가장 먼저 저장된 데이터 삭제
