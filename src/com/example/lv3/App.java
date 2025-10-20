@@ -15,29 +15,29 @@ public class App {
         ArithmeticCalculator arithmeticCalculator = new ArithmeticCalculator();
 
         Scanner sc = new Scanner(System.in);
-        int value1, value2;
+        double num1, num2;
 
         // "exit" 입력 전까지 무한 계산
         do {
             try {
                 // 양의 정수(0 포함)를 입력받기
                 System.out.print("첫 번째 숫자를 입력하세요: ");
-                value1 = sc.nextInt();
+                num1 = sc.nextInt();
                 System.out.print("두 번째 숫자를 입력하세요: ");
-                value2 = sc.nextInt();
-                if (value1 < 0 || value2 < 0) {
+                num2 = sc.nextInt();
+                if (num1 < 0 || num2 < 0) {
                     throw new Exception("양의 정수(0포함)를 입력해주세요.");
                 }
 
                 // 사칙연산 기호(➕,➖,✖️,➗)를 입력받기
                 System.out.print("사칙연산 기호를 입력하세요: ");
-                char inputOperator = sc.next().charAt(0);
+                char inputSymbol = sc.next().charAt(0);
 
                 // 입력받은 기호로 enum 타입 설정하기
-                OperatorType operator = OperatorType.matchOperator(inputOperator);
+                OperatorType operator = OperatorType.fromSymbol(inputSymbol);
 
-                // 입력받은 양의 정수 2개와 사칙연산 기호를 사용하여 연산 후 결과값 출력 _키워드 : `if` `switch`
-                double result = arithmeticCalculator.calculator(value1, value2, operator);
+                // 입력받은 양의 정수 2개와 사칙연산 기호를 사용하여 연산 후 결과값 출력
+                double result = arithmeticCalculator.calculator(num1, num2, operator);
                 System.out.println("결과: " + result);
 
                 // 저장된 연산 결과 확인
