@@ -1,30 +1,20 @@
 package com.example.lv3.calculator;
 
-import java.util.function.DoubleBinaryOperator;
-
 public enum OperatorType {
-    ADD('+', (num1, num2) -> num1 + num2),
-    SUBTRACT('-', (num1, num2) -> num1 - num2),
-    MULTIPLY('*',(num1, num2) -> num1*num2),
-    DIVIDE('/', (num1, num2) -> {
-        if (num2 == 0) {
-            throw new RuntimeException("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.");
-        } else {
-            return num1 / num2;
-        }
-    });
+    ADD('+'),
+    SUBTRACT('-'),
+    MULTIPLY('*'),
+    DIVIDE('/');
 
-    private char symbol;
-    private DoubleBinaryOperator operation;
+    private final char symbol;
 
-    OperatorType(char symbol, DoubleBinaryOperator operation) {
+    OperatorType(char symbol) {
         this.symbol = symbol;
-        this.operation = operation;
     }
 
-    public static OperatorType matchOperator(char inputOperator){
-        for(OperatorType operator : OperatorType.values()){
-            if(operator.getSymbol() == inputOperator){
+    public static OperatorType fromSymbol(char symbol) {
+        for (OperatorType operator : OperatorType.values()) {
+            if (operator.getSymbol() == symbol) {
                 return operator;
             }
         }
@@ -33,9 +23,5 @@ public enum OperatorType {
 
     public char getSymbol() {
         return symbol;
-    }
-
-    public double calculate(double num1, double num2){
-        return  operation.applyAsDouble(num1, num2);
     }
 }
