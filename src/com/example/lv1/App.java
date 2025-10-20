@@ -57,5 +57,3 @@ public class App {
         } while (!sc.next().equals("exit"));
     }
 }
-
-// 예외 질문 -> 오류 던질때? throw 쓸 때 예외 코드? Exeption or Illig~Argu~Exception? 어떻게 선택해야 하나요?
