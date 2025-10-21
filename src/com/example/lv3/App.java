@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        ArithmeticCalculator arithmeticCalculator = new ArithmeticCalculator();
+        ArithmeticCalculator<Double> arithmeticCalculator = new ArithmeticCalculator<>();
 
         Scanner sc = new Scanner(System.in);
         double num1, num2;
@@ -26,7 +26,7 @@ public class App {
                 System.out.print("두 번째 숫자를 입력하세요: ");
                 num2 = sc.nextDouble();
                 if (num1 < 0 || num2 < 0) {
-                    throw new Exception("양의 정수(0포함)를 입력해주세요.");
+                    throw new Exception("양수(0포함)를 입력해주세요.");
                 }
 
                 // 사칙연산 기호(➕,➖,✖️,➗)를 입력받기
@@ -37,7 +37,7 @@ public class App {
                 OperatorType operator = OperatorType.fromSymbol(inputSymbol);
 
                 // 입력받은 양의 정수 2개와 사칙연산 기호를 사용하여 연산 후 결과값 출력
-                Object result = arithmeticCalculator.calculate(num1, num2, operator);
+                double result = arithmeticCalculator.calculate(num1, num2, operator);
                 System.out.println("결과: " + result);
 
                 // 저장된 연산 결과 확인
