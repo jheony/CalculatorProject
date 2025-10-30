@@ -17,8 +17,9 @@ public class App {
         Scanner sc = new Scanner(System.in);
         double num1, num2;
 
+        boolean isRunning = true;
         // "exit" 입력 전까지 무한 계산
-        do {
+        while (isRunning) {
             try {
                 // 양의 정수(0 포함)를 입력받기
                 System.out.print("첫 번째 숫자를 입력하세요: ");
@@ -44,15 +45,22 @@ public class App {
                 System.out.println(arithmeticCalculator.getResults());
 
                 System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
+
+                String exit = sc.next();
+
+                // "exit" 입력 시 계산기 종료
+                if (exit.equals("exit")) {
+                    isRunning = false;
+                }
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
-        } while (!sc.next().equals("exit"));
+        }
         // 수정 전 결과
         System.out.println("수정 전 데이터:\n" + arithmeticCalculator.getResults());
 
         // 연산 결과 수정
-        arithmeticCalculator.setResult(0, 999.0);
+        arithmeticCalculator.setResult(0, 999);
         System.out.println("0번째 인덱스를 999로 수정:\n" + arithmeticCalculator.getResults());
 
         // 가장 먼저 저장된 데이터 삭제
