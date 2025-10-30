@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Calculator {
-    private List<Integer> results = new ArrayList<>();
+    private final List<Integer> results = new ArrayList<>();
 
     public int calculate(int firstNum, int lastNum, char operator) throws Exception {
 
@@ -35,16 +35,23 @@ public class Calculator {
     }
 
     // 연산 결과 리스트 반환
-    public List<Integer> getResults(){
+    public List<Integer> getResults() {
         return new ArrayList<>(results);
     }
 
+    // 연산 결과 조회
+    public void showResults() {
+        for (int i = 0; i < results.size(); i++) {
+            System.out.println(i + ". " + results.get(i));
+        }
+    }
+
     // 연산 결과 수정
-    public void setResult(int idx, int result){
+    public void setResult(int idx, int result) {
         this.results.set(idx, result);
     }
 
-    public boolean isResultsEmpty(){
+    public boolean isResultsEmpty() {
         return this.results.isEmpty();
     }
 }

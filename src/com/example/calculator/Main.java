@@ -62,10 +62,18 @@ public class Main {
                     if(calculator.isResultsEmpty()){
                         System.out.println("연산 결과가 없습니다.");
                     }else{
-                        calculator.getResults().stream().forEach(System.out::println);
+                        calculator.showResults();
                     }
                     break;
                 case 3:
+                    if(calculator.isResultsEmpty()){
+                        System.out.println("연산 결과가 없습니다.");
+                    }else{
+//                        System.out.print("수정할 인덱스를 입력해주세요.");
+//                        int idx = inputNum();
+//                        System.out.println("수정 결과값을 입력해주세요.");
+//                        int inputResult = inputNum();
+                    }
                     break;
                 case 4:
                     isRunning = false;
