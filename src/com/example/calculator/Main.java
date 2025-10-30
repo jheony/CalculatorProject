@@ -57,9 +57,13 @@ public class Main {
                             System.out.println(e.getMessage() + "\n");
                         }
                     }
-
                     break;
                 case 2:
+                    if(calculator.isResultsEmpty()){
+                        System.out.println("연산 결과가 없습니다.");
+                    }else{
+                        calculator.getResults().stream().forEach(System.out::println);
+                    }
                     break;
                 case 3:
                     break;

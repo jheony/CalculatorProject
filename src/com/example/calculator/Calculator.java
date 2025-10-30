@@ -43,4 +43,8 @@ public class Calculator {
     public void setResult(int idx, int result){
         this.results.set(idx, result);
     }
+
+    public boolean isResultsEmpty(){
+        return this.results.isEmpty();
+    }
 }
