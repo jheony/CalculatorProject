@@ -3,24 +3,27 @@ package com.example.calculator;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Calculator {
-    private final List<Integer> results = new ArrayList<>();
+public class ArithmeticCalculator {
+    private List<Number> results = new ArrayList<>();
 
-    public int calculate(int firstNum, int lastNum, char operator) throws Exception {
+    public <T extends Number, U extends Number> Number calculate(T num1, U num2, OperatorType operator) throws Exception {
 
-        int result;
+        Number result;
+        double firstNum = num1.doubleValue();
+        double lastNum = num2.doubleValue();
+
         // 사칙연산을 기호에 맞게 수행 후 result에 결과 저장
-        switch (operator) {
-            case '+':
+        switch (operator.name()) {
+            case "ADD":
                 result = firstNum + lastNum;
                 break;
-            case '-':
+            case "SUB":
                 result = firstNum - lastNum;
                 break;
-            case '*':
+            case "MUL":
                 result = firstNum * lastNum;
                 break;
-            case '/':
+            case "DIV":
                 if (lastNum == 0) {
                     throw new Exception("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.");
                 } else {
@@ -35,7 +38,7 @@ public class Calculator {
     }
 
     // 연산 결과 리스트 반환
-    public List<Integer> getResults() {
+    public List<Number> getResults() {
         return new ArrayList<>(results);
     }
 
@@ -47,13 +50,18 @@ public class Calculator {
     }
 
     // 연산 결과 수정
-    public void setResult(int idx, int result) {
+    public void setResult(int idx, Number result) {
         this.results.set(idx, result);
     }
 
     // 첫번째 결과 삭제
     public void removeFirstResult() {
         this.results.remove(0);
+    }
+
+    // 선택한 인덱스가 results의 길이를 넘지 않는지
+    public boolean isInResultsSize(int num){
+        return num < this.results.size() && num >= 0;
     }
 
     public boolean isResultsEmpty() {
