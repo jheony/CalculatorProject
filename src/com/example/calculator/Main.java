@@ -16,9 +16,14 @@ public class Main {
         while (isRunning) {
 
             System.out.println("메뉴를 선택해주세요.");
-            System.out.println("1. 사칙연산\t\t2. 연산 결과 조회\t\t3. 연산 결과 수정\t\t4. 종료");
+            System.out.println("1. 사칙연산\t\t2. 연산 결과 조회\t\t3. 연산 결과 수정\t\t4. 첫번째 연산 결과 삭제\t\t5. 종료");
             try {
                 selectNum = inputNum();
+                if (2 <= selectNum && selectNum <= 4) {
+                    if (calculator.isResultsEmpty()) {
+                        throw new Exception("연산 결과가 없습니다.");
+                    }
+                }
 
                 switch (selectNum) {
                     case 1:
@@ -57,27 +62,28 @@ public class Main {
                         }
                         break;
                     case 2:
-                        if (calculator.isResultsEmpty()) {
-                            System.out.println("연산 결과가 없습니다.");
-                        } else {
-                            calculator.showResults();
-                        }
+                        calculator.showResults();
                         break;
                     case 3:
-                        if (calculator.isResultsEmpty()) {
-                            System.out.println("연산 결과가 없습니다.");
-                        } else {
-                            calculator.showResults();
-                            System.out.print("수정할 인덱스를 입력해주세요: ");
-                            int idx = inputNum();
-                            System.out.print("수정할 결과값을 입력해주세요: ");
-                            int inputResult = inputNum();
-                            calculator.setResult(idx, inputResult);
+                        calculator.showResults();
+                        System.out.print("수정할 인덱스를 입력해주세요: ");
+                        int idx = inputNum();
+                        System.out.print("수정할 결과값을 입력해주세요: ");
+                        int inputResult = inputNum();
+                        calculator.setResult(idx, inputResult);
 
-                            System.out.println(idx + "번째의 결과값이 " + inputResult + "로 수정되었습니다.");
-                        }
+                        System.out.println(idx + "번째의 결과값이 " + inputResult + "로 수정되었습니다.");
                         break;
                     case 4:
+                        System.out.println("정말 첫 번째 결과값을 삭제하시겠습니까?");
+                        System.out.println("1. 확인\t\t2. 취소");
+                        int selctNum = inputNum();
+                        if (selctNum == 1) {
+                            calculator.removeFirstResult();
+                            System.out.println("첫번째 결과값이 삭제되었습니다.");
+                        }
+                        break;
+                    case 5:
                         isRunning = false;
                         System.out.println("계산기를 종료합니다.");
                         break;

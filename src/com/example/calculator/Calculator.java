@@ -51,6 +51,11 @@ public class Calculator {
         this.results.set(idx, result);
     }
 
+    // 첫번째 결과 삭제
+    public void removeFirstResult() {
+        this.results.remove(0);
+    }
+
     public boolean isResultsEmpty() {
         return this.results.isEmpty();
     }
