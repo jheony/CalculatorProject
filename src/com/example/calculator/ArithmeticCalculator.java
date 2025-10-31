@@ -67,4 +67,7 @@ public class ArithmeticCalculator {
     public boolean isResultsEmpty() {
         return this.results.isEmpty();
     }
+    public void showLargeresult(Number num){
+        this.results.stream().filter(res -> res.doubleValue() > num.doubleValue()).forEach(System.out::println);
+    }
 }

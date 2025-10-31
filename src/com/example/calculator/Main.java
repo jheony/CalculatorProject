@@ -16,10 +16,10 @@ public class Main {
         while (isRunning) {
 
             System.out.println("메뉴를 선택해주세요.");
-            System.out.println("1. 사칙연산\t\t2. 연산 결과 조회\t\t3. 연산 결과 수정\t\t4. 첫번째 연산 결과 삭제\t\t5. 종료");
+            System.out.println("1. 사칙연산\t\t2. 연산 결과 조회\t\t3. 연산 결과 수정\t\t4. 첫번째 연산 결과 삭제\t\t5. 결과값 비교\t\t6. 종료");
             try {
                 selectNum = inputNum().intValue();
-                if (2 <= selectNum && selectNum <= 4) {
+                if (2 <= selectNum && selectNum <= 5) {
                     if (arithmeticCalculator.isResultsEmpty()) {
                         throw new Exception("연산 결과가 없습니다.");
                     }
@@ -86,6 +86,12 @@ public class Main {
                         }
                         break;
                     case 5:
+                        System.out.print("비교할 값을 입력하세요: ");
+                        Number inputCompareResult = inputNum().doubleValue();
+                        System.out.println(inputCompareResult + "보다 큰 결과값들을 출력합니다.");
+                        arithmeticCalculator.showLargeresult(inputCompareResult);
+                        break;
+                    case 6:
                         isRunning = false;
                         System.out.println("계산기를 종료합니다.");
                         break;
